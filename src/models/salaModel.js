@@ -1,8 +1,9 @@
-async function listarSalas ()
+const db = require("./db");
+
+let listarSalas = async() =>
 {
-    return [{nome:"Grupo do Sagu", tipo:"pública"},
-           {nome:"Armazem Ardido", tipo:"pública"}
-    ]
+    let salas = await db.findAll("salas");
+    return salas;
 }
 
-module.exports = {listarSalas};
+module.exports = {listarSalas}
