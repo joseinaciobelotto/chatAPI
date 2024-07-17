@@ -1,10 +1,20 @@
 const jwt = require('jsonwebtoken');
-
-const checktoken = (token,id,key)=>jwt.verify(token,key,(err,decoded)=>{
-
+const user = require("../models/userModel");
 
 
-});
+const checktoken = (token,id,key)=>{
+
+    try{
+        
+        const verificationer = jwt.verify(token,key);
+        
+            return verificationer;
+    }
+    catch(error)
+    {
+        
+    }
+};
 
 const setToken = async(id,key) =>{
 
@@ -15,6 +25,8 @@ const setToken = async(id,key) =>{
     }
     return false;
 }
+
+
 
 module.exports = {
     checktoken,
