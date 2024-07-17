@@ -1,9 +1,9 @@
 const token = require("../util/token");
-const userModel = require("../models.userModel");
+const userModel = require("../models/userModel");
 
 exports.entrar = async(nick)=>
 {
-    let resp = await userModel.registrarUsuer(nick);
+    let resp = await userModel.registrarUser(nick);
     if(resp.insertedId)
     {
         return {"idUser":resp.insertedId,

@@ -32,6 +32,13 @@ app.use('/', router.get('/salas', async(req,res) =>
     res.status(200).send(resp);
 }))
 
+app.use('/entrar', router.get('/entrar', async(req,res,next) =>
+{
+    const userController = require('./controllers/userController');
+    let resp = await userController.entrar(req.body.nick);
+    res.status(200).send(resp);
+}))
+
 
 
 
