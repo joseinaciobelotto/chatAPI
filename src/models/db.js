@@ -21,4 +21,11 @@ let findAll = async(collection) =>
     return await db.collection(collection).find().toArray();
 }
 
-module.exports = {findAll};
+async function insertOne(collection,objeto)
+{
+const db = await connect();
+return db.collection(collection).insertOne(objeto);
+
+}
+
+module.exports = {findAll, insertOne};
