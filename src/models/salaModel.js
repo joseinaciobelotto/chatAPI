@@ -35,6 +35,7 @@ let buscarSala = async (idsala)=>{
 
 let excluirMensagens = async (idsala, iduser)=>{
   let sala = await buscarSala(idsala);
+  try{
   if(sala.msgs){
     
     for (let i = sala.msgs.length - 1; i >= 0; i--) {
@@ -44,6 +45,13 @@ let excluirMensagens = async (idsala, iduser)=>{
       }}
       
   }
+}catch(error)
+  {
+    console.log(error)
+  }
+
+   
+
   return [];
 }
 
