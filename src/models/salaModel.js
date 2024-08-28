@@ -6,9 +6,10 @@ let listarSalas = async() =>
     return salas;
 }
 
-/*
+
 let buscarSala = async (idsala)=>{
     return db.findOne("salas",idsala);
+    
   }
   
 
@@ -31,5 +32,22 @@ let buscarSala = async (idsala)=>{
     return [];
 }
 
-*/
-module.exports = {listarSalas}
+
+let excluirMensagens = async (idsala, iduser)=>{
+  let sala = await buscarSala(idsala);
+  if(sala.msgs){
+    
+    for (let i = sala.msgs.length - 1; i >= 0; i--) {
+      if (sala.msgs[i].nick === iduser) {
+        console.log("Removendo mensagem");
+        db.deleteMenssagen('salas',idsala,iduser,i);
+      }}
+      
+  }
+  return [];
+}
+
+
+
+
+module.exports = {listarSalas, buscarMensagens, atualizarMensagens, buscarSala,excluirMensagens}

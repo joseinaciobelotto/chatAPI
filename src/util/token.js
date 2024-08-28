@@ -2,12 +2,13 @@ const jwt = require('jsonwebtoken');
 const user = require("../models/userModel");
 
 
-const checktoken = (token,id,key)=>{
+const checkToken = (token,id,key)=>{
 
     try{
         
         const verificationer = jwt.verify(token,key);
-        
+
+        console.log("aaaaaaaaaaaasd");
             return verificationer;
     }
     catch(error)
@@ -29,6 +30,6 @@ const setToken = async(id,key) =>{
 
 
 module.exports = {
-    checktoken,
+    checkToken,
     setToken,
 }
