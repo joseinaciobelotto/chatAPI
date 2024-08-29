@@ -61,8 +61,9 @@ exports.buscarMensagens = async (idsala, timestamp)=>
     let mensagens = await salaModel.excluirMensagens(idsala, iduser);
 
     return {
+      "mensagens":mensagens,
+      "msgs":  "Usuario saiu da sala",
       
-      "msgs":  "Usuario saiu da sala"
     };
 
   }

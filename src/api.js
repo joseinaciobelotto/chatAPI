@@ -88,13 +88,14 @@ app.use("/sala/criar", router.get("/sala/criar", async (req, res) =>
     res.status(200).send(resp);
 }))*/
 
-app.delete("/sala/sair", router.get("/sala/sair", async (req, res) => 
+app.use("/sala/sair", router.get("/sala/sair", async (req, res) => 
     {
         
         
     if(!token.checkToken(req.headers.token,req.headers.iduser,req.headers.nick)) return false;
     const salaController = require('./controllers/salaController');
     let resp= await salaController.excluirMensagens(req.query.idSala, req.headers.nick);
+    
     res.status(200).send(resp);
 }))
 

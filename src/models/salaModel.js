@@ -34,25 +34,34 @@ let buscarSala = async (idsala)=>{
 
 
 let excluirMensagens = async (idsala, iduser)=>{
-  let sala = await buscarSala(idsala);
-  try{
+  let sala =  db.findOne("salas",idsala);
+  console.log("Removendo mensagem");
+ try{
+  let user =  db.findOne("usuarios",idsala);
+  user.sala = null;
+ db.updateOne("usuarios",  user.sala, iduser);
   if(sala.msgs){
     
-    for (let i = sala.msgs.length - 1; i >= 0; i--) {
+    for (let i = 0 ; i < sala.msgs.length - 1 ; i++) {
       if (sala.msgs[i].nick === iduser) {
         console.log("Removendo mensagem");
-        db.deleteMenssagen('salas',idsala,iduser,i);
+        sala.splice(i,10000);
+        let sala =  db.updateOne("salas", sala,{_id:idsala});
       }}
-      
+      let user =  db.findOne("usuarios",idsala);
+       user.sala = null;
+      db.updateOne("usuarios",  user.sala, iduser);
+   
+      return salaMsgDelete;
   }
 }catch(error)
   {
     console.log(error)
   }
 
-   
-
   return [];
+
+ 
 }
 
 
