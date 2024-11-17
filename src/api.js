@@ -10,6 +10,9 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   methods: "GET,POST,PUT,DELETE", 
   allowedHeaders: "Content-Type,Authorization",
+  preflightContinue: false, 
+  optionsSuccessStatus: 204
+
 };
 const router = express.Router();
 app.use('/', router.get('/', (req,res)=>{
