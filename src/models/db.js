@@ -1,6 +1,16 @@
 /*const { MongoClient, ObjectId} = require("mongodb");*/
 
 const { MongoClient, ServerApiVersion,ObjectId} = require("mongodb");
+
+const cors = require('cors');
+
+const corsOptions = {
+  origin: true, 
+  optionsSuccessStatus: 200 
+};
+
+app.use(cors(corsOptions));
+
 async function connect() {
     if (singleton) return singleton;
 
