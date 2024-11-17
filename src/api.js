@@ -15,13 +15,15 @@ const corsOptions = {
 
 };
 
+pp.use(cors(corsOptions));
+
 app.options('*', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.status(200).send();
   });
-  
+
 const router = express.Router();
 app.use('/', router.get('/', (req,res)=>{
     res.status(200).send("<h1>API - CHAT</h1>")}));
