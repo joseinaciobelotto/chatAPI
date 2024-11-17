@@ -15,7 +15,7 @@ const corsOptions = {
 
 };
 
-pp.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.options('*', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
