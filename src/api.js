@@ -7,7 +7,9 @@ const cors = require('cors');
 
 const corsOptions = {
   origin: true, 
-  optionsSuccessStatus: 200 
+  optionsSuccessStatus: 200,
+  methods: "GET,POST,PUT,DELETE", 
+  allowedHeaders: "Content-Type,Authorization",
 };
 const router = express.Router();
 app.use('/', router.get('/', (req,res)=>{
