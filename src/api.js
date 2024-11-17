@@ -3,14 +3,12 @@ const app = express();
 app.use ( express.urlencoded({extends:true}));
 app.use(express.json());
 const token = require('./util/token');
-
 const cors = require('cors');
-const corsOptions = {
-  origin: 'http://localhost:5173', 
-  optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
 
+const corsOptions = {
+  origin: true, 
+  optionsSuccessStatus: 200 
+};
 const router = express.Router();
 app.use('/', router.get('/', (req,res)=>{
     res.status(200).send("<h1>API - CHAT</h1>")}));
