@@ -9,7 +9,7 @@ const corsOptions = {
   origin: true, 
   optionsSuccessStatus: 200,
   methods: "GET,POST,PUT,DELETE", 
-  allowedHeaders: "Content-Type,Authorization",
+  allowedHeaders: ['Content-Type', 'Authorization', 'nick', 'token'],
   preflightContinue: false, 
   optionsSuccessStatus: 204
 
