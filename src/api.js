@@ -6,7 +6,7 @@ const token = require('./util/token');
 
 const cors = require('cors');
 const corsOptions = {
-  origin: 'http://localhost:5171/', 
+  origin: 'http://localhost:5173', 
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
